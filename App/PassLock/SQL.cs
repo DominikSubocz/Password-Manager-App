@@ -41,6 +41,16 @@ namespace PassLock
                         cmd.CommandType = CommandType.Text;
                         cmd.CommandText = "SHOW DATABASES LIKE 'passlockdb'";
                         cmd.ExecuteNonQuery();
+                        string result = (string)cmd.ExecuteScalar();
+                        if(result == null) {
+                            // Create tables
+                            StringBuilder sqlBuilder = new StringBuilder();
+                            sqlBuilder.AppendLine();
+
+
+                        }
+                        Debug.WriteLine("hello!");
+                        Debug.WriteLine(result);
                         connection.Close();
 
                     }
