@@ -1,4 +1,4 @@
-﻿using MySql.Data.MySqlClient;
+﻿using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,20 +12,46 @@ namespace PassLock
 {
     internal class SQL
     {
-        const string M_str_sqlcon = "Server=localhost;Database=passlockdb;Uid=root;";
 
-        public void createDB()
+        private static MySqlConnection connection;
+        private static MySqlCommand cmd = null;
+        private static DataTable dt;
+        private static MySqlDataAdapter sda;
+
+        public async void createDB()
         {
-            using (var mySqlCn = new MySqlConnection(M_str_sqlcon))
+
+
+            try
             {
-                mySqlCn.Open();
-                using (var mySqlCmd = new MySqlCommand("CREATE DATABASE IF NOT EXISTS passlockdb", mySqlCn))
+                MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder();
+                builder.Server = "127.0.0.1";
+                builder.UserID = "root";
+                builder.Password = "root%Password";
+                builder.SslMode = MySqlSslMode.None;
+                connection = new MySqlConnection(builder.ToString());
+                Debug.WriteLine("Connected successfully!");
+
+                try
                 {
-                    Debug.WriteLine("Done!");
+                    if(connection != null)
+                    {
+                        connection.Open();
+                        cmd = connection.CreateCommand();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.CommandText = "SHOW DATABASES LIKE 'passlockdb'";
+                        cmd.ExecuteNonQuery();
+                        connection.Close();
+
+                    }
+                } catch (Exception x)
+                {
+                    connection.Close();
+                    Debug.WriteLine("Error running command!");
                 }
-
-                mySqlCn.Close();
-
+            } catch (Exception ex)
+            {
+                Debug.WriteLine("connection failed");
             }
 
         }

@@ -132,9 +132,6 @@
   <data name="ActivityIdFormatInvalid" xml:space="preserve">
     <value>"Value must be a valid ActivityIdFormat value"</value>
   </data>
-  <data name="ActivitySetParentAlreadyStarted" xml:space="preserve">
-    <value>"Can not set parent on already started Activity"</value>
-  </data>
   <data name="StartTimeNotUtc" xml:space="preserve">
     <value>"StartTime is not UTC"</value>
   </data>
@@ -143,9 +140,6 @@
   </data>
   <data name="UnableAccessServicePointTable" xml:space="preserve">
     <value>Unable to access the ServicePointTable field</value>
-  </data>
-  <data name="InvalidInstrumentType" xml:space="preserve">
-    <value>The instrument is of different generic type.</value>
   </data>
   <data name="KeyAlreadyExist" xml:space="preserve">
     <value>"The collection already contains item with same key '{0}''"</value>
