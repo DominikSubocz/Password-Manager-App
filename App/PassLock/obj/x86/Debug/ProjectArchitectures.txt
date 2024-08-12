@@ -1,0 +1,1 @@
+D:\Password Manager App\App\PassLock\PassLock.csproj;x86

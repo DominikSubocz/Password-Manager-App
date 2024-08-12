@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <SplashScreenSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</SplashScreenSource>
+    <Source>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</Source>
+    <SmallTileSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</SmallTileSource>
+    <MediumTileSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</MediumTileSource>
+    <WideTileSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</WideTileSource>
+    <LargeTileSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</LargeTileSource>
+    <AppIconSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</AppIconSource>
+    <PackageLogoSource>D:\Password Manager App\animation\ezgif-5-dba482772a.gif</PackageLogoSource>
+  </PropertyGroup>
+</Project>
