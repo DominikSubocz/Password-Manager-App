@@ -8,17 +8,25 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <Image x:Name="Logo" Source="Assets/logo.png"></Image>
-
+    <Grid x:Name="LoginGrid">
+        <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Fill="AliceBlue" ></Rectangle>
+        <TextBlock Text="LogIn" Grid.Column="1" Grid.Row="1" FontSize="32"></TextBlock>
+        <PasswordBox x:Name="LoginField" Grid.Column="2" Grid.ColumnSpan="2" Width="500" Margin="0 0 100 0" Grid.Row="2" Height="75"></PasswordBox>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="50">
-
-            </RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
     </Grid>
 </Page>
