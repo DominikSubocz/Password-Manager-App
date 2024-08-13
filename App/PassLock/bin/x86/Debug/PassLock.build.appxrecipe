@@ -55,6 +55,9 @@
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\TextFile1.txt">
+      <PackagePath>TextFile1.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\PassLock.xr.xml">
       <PackagePath>PassLock.xr.xml</PackagePath>
     </AppxPackagedFile>

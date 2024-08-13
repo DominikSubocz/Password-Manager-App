@@ -7,6 +7,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.ApplicationModel.Contacts;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -33,8 +34,44 @@ namespace PassLock
 
 
             SQL sql = new SQL();
-            sql.createDB();
 
+            sql.createDB();
+            bool usersExist = sql.usersExist();
+            if(usersExist == false)
+            {
+                SignUpPanel.Visibility = Visibility.Visible;
+                LoginTxt.Text = "Create New Account!";
+
+            }
+            else
+            {
+                SignUpPanel.Visibility = Visibility.Collapsed;
+            }
+
+        }
+
+        private void RegisterBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Users users = new Users();
+            string pass1 = Password1.Password;
+            string pass2 = Password2.Password;
+
+            string output = users.validatePasswords(pass1, pass2);
+            if (output == "")
+            {
+
+                Debug.WriteLine("Password validation successful!");
+                ErrTxt.Text = "";
+
+            }
+            else
+            {
+                ErrTxt.Text = output;
+            }
+        }
+
+        private void Password1_PasswordChanged(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

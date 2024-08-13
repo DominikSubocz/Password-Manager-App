@@ -10,8 +10,35 @@
 
     <Grid x:ConnectionId='2' x:Name="LoginGrid">
         <Rectangle Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" Fill="AliceBlue" ></Rectangle>
-        <TextBlock Text="LogIn" Grid.Column="1" Grid.Row="1" FontSize="32"></TextBlock>
-        <PasswordBox x:ConnectionId='3' x:Name="LoginField" Grid.Column="2" Grid.ColumnSpan="2" Width="500" Margin="0 0 100 0" Grid.Row="2" Height="75"></PasswordBox>
+        <TextBlock x:ConnectionId='3' x:Name="LoginTxt" Text="LogIn" Grid.Column="1" Grid.Row="1" FontSize="32"></TextBlock>
+        <Grid Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="Red" Height="100" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1"></Rectangle>
+            <TextBlock x:ConnectionId='9' x:Name="ErrTxt" Foreground="White" FontSize="18" Grid.Column="1" Grid.Row="1" Text="Null"></TextBlock>
+        </Grid>
+
+        <StackPanel x:ConnectionId='4' x:Name="SignUpPanel" Margin="0 0 100 0" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3" Visibility="Visible">
+            <TextBlock Text="Username" FontSize="24"></TextBlock>
+            <TextBox x:ConnectionId='5' x:Name="UsernameField"  Width="500"  Height="75"></TextBox>
+            <TextBlock Text="Password" FontSize="24"></TextBlock>
+            <PasswordBox x:ConnectionId='6' x:Name="Password1"  Width="500"  Height="75"></PasswordBox>
+            <TextBlock Text="Confirm Password" FontSize="24"></TextBlock>
+            <PasswordBox x:ConnectionId='7' x:Name="Password2"   Width="500"  Height="75"></PasswordBox>
+            <Button x:ConnectionId='8' x:Name="RegisterBtn" Width="100"                          >Sign Up</Button>
+
+        </StackPanel>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
@@ -26,6 +53,10 @@
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+
+
         </Grid.RowDefinitions>
 
     </Grid>
