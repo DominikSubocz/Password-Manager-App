@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-13T14:56:12.457</Modified>
+      <Modified>2024-08-13T19:06:50.129</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\PassLock.exe">
       <PackagePath>entrypoint\PassLock.exe</PackagePath>
-      <Modified>2024-08-13T14:56:11.995</Modified>
+      <Modified>2024-08-13T19:06:49.662</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\stasi\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
@@ -62,6 +62,14 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2023-05-11T22:54:58.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\10-million-password-list-top-1000000.txt">
+      <PackagePath>10-million-password-list-top-1000000.txt</PackagePath>
+      <Modified>2024-08-13T18:19:58.960</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\TextFile1.txt">
+      <PackagePath>TextFile1.txt</PackagePath>
+      <Modified>2024-08-13T10:05:09.248</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\Assets\ezgif-5-dba482772a.gif">
       <PackagePath>Assets\ezgif-5-dba482772a.gif</PackagePath>
       <Modified>2024-08-08T10:37:55.551</Modified>
@@ -74,25 +82,21 @@
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2024-08-08T09:41:49.051</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\TextFile1.txt">
-      <PackagePath>TextFile1.txt</PackagePath>
-      <Modified>2024-08-13T10:05:09.248</Modified>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\PassLock.xr.xml">
       <PackagePath>PassLock.xr.xml</PackagePath>
       <Modified>2024-08-13T14:34:01.931</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-08-13T14:56:11.943</Modified>
+      <Modified>2024-08-13T19:06:49.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\ExtendedSplashScreen.xbf">
       <PackagePath>ExtendedSplashScreen.xbf</PackagePath>
-      <Modified>2024-08-13T14:56:11.943</Modified>
+      <Modified>2024-08-13T19:06:49.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-08-13T14:56:11.943</Modified>
+      <Modified>2024-08-13T19:06:49.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -100,11 +104,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-08-13T10:58:25.605</Modified>
+      <Modified>2024-08-13T18:26:10.592</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\Core\PassLock.exe">
       <PackagePath>PassLock.exe</PackagePath>
-      <Modified>2024-08-13T14:56:12.456</Modified>
+      <Modified>2024-08-13T19:06:50.127</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

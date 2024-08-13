@@ -136,6 +136,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="10-million-password-list-top-1000000.txt" />
     <Content Include="Assets\ezgif-5-dba482772a.gif" />
     <Content Include="Assets\logo.png" />
     <Content Include="Properties\Default.rd.xml" />

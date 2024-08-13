@@ -52,11 +52,18 @@ namespace PassLock
 
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
-            Users users = new Users();
+
+
+
+        }
+
+        private void Password1_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            PasswordValidator passVal = new PasswordValidator();
             string pass1 = Password1.Password;
             string pass2 = Password2.Password;
 
-            string output = users.validatePasswords(pass1, pass2);
+            string output = passVal.validatePasswords(pass1, pass2);
             if (output == "")
             {
 
@@ -68,12 +75,7 @@ namespace PassLock
             {
                 ErrTxt.Text = output;
             }
-        }
 
-        private void Password1_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            PasswordValidator passVal = new PasswordValidator();
-            PasswordStrengthBox.Width = passVal.getPasswordStrength();
 
         }
     }
