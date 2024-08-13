@@ -72,6 +72,9 @@ namespace PassLock
 
         private void Password1_PasswordChanged(object sender, RoutedEventArgs e)
         {
+            PasswordValidator passVal = new PasswordValidator();
+            PasswordStrengthBox.Width = passVal.getPasswordStrength();
+
         }
     }
 }
