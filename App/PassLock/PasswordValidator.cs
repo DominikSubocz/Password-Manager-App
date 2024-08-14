@@ -23,8 +23,6 @@ namespace PassLock
             commonPasswords = new List<string>(File.ReadAllLines("10-million-password-list-top-1000000.txt"));
         }
 
-        public string returnOutputMsg() { return output; }
-
         public string validatePasswords(string password1, string password2)
         {
 
@@ -34,6 +32,11 @@ namespace PassLock
             Regex digitPattern = new Regex(@"(?=.*\d)");
             Regex specialCharPattern = new Regex(@"(?=.*[^\da-zA-Z])");
             int maxDistance = 2;
+            int byteSize = 0;
+            int length = password1.Length;
+            int charsetSize = 94;
+            int repetitionCount = 0;
+            bool hasRepetition = false;
 
             // Return true if the password matches the pattern, otherwise false
             if (upperCaseRegex.IsMatch(password1) == false)
@@ -53,7 +56,7 @@ namespace PassLock
 
             }
 
-            else if (password1.Length <8)
+            else if (length <8)
             {
                 output = "Password needs to be at least 8 characters long";
 
@@ -63,7 +66,6 @@ namespace PassLock
                 {
                     if (password1 == commonPassword)
                     {
-                        Debug.WriteLine("Weak password!");
                     } else
                     {
                         int similarityDistance = Compute(password1, commonPassword);
@@ -71,13 +73,51 @@ namespace PassLock
                         {
                             output = "Weak password, similarity between common password too high!";
                         }
+                        else
+                        {
+                            if (password1.Contains(commonPassword))
+                            {
+                                output = "Weak password, your password contains common password";
+
+                            }
+                        }
+                        
                     }
                 }
 
+                double charsetResult = length * (Math.Log(charsetSize) / Math.Log(2));
+                passwordStrength = Convert.ToInt32(charsetResult);
 
+                foreach (char c in password1)
+                {
+                    if (char.IsUpper(c))
+                    {
+                        passwordStrength += 10;
+                    }
+
+                    if(char.IsDigit(c))
+                    {
+                        passwordStrength += 10;
+                    }
+
+
+                }
+
+                hasRepetition = Regex.IsMatch(password1, @"(\w)\1{2,}");
+
+                if (hasRepetition)
+                {
+                    repetitionCount++;
+                }
+
+
+
+                Debug.WriteLine("Strength: " + passwordStrength);
+                Debug.WriteLine("Repetition Count " + repetitionCount);
+                Debug.WriteLine(password1);
             }
 
-
+            Debug.WriteLine(byteSize);
             return output;
         }
 
