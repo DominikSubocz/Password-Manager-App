@@ -37,16 +37,15 @@ namespace PassLock
 
             sql.createDB();
             bool usersExist = sql.usersExist();
-            if(usersExist == false)
-            {
-                SignUpPanel.Visibility = Visibility.Visible;
-                LoginTxt.Text = "Create New Account!";
+            //if (usersExist == false)
+            //{
+            //    SignUpPanel.Visibility = Visibility.Visible;
 
-            }
-            else
-            {
-                SignUpPanel.Visibility = Visibility.Collapsed;
-            }
+            //}
+            //else
+            //{
+            //    SignUpPanel.Visibility = Visibility.Collapsed;
+            //}
 
         }
 

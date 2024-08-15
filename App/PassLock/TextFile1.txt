@@ -1,14 +1,1 @@
 ﻿
-
-
-
-
-
--- 6. Create DocumentTags Table (Many-to-Many relationship between Documents and Tags)
-CREATE TABLE DocumentTags (
-    DocumentTagID INT AUTO_INCREMENT PRIMARY KEY,
-    DocumentID INT NOT NULL,
-    TagID INT NOT NULL,
-    FOREIGN KEY (DocumentID) REFERENCES Documents(DocumentID) ON DELETE CASCADE,
-    FOREIGN KEY (TagID) REFERENCES Tags(TagID) ON DELETE CASCADE
-);

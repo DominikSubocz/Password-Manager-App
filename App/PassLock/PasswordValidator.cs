@@ -75,10 +75,13 @@ namespace PassLock
                         }
                         else
                         {
-                            if (password1.Contains(commonPassword))
+                            if (password1.Contains(commonPassword) || (password1.Contains(commonPassword.ToLower())))
                             {
-                                output = "Weak password, your password contains common password";
+                                output = "Your password contains a phrase or sequence commonly used in passwords. This makes it more vulnerable to attacks. Please choose a more unique combination.";
 
+                            } else
+                            {
+                                output = "";
                             }
                         }
                         
@@ -105,15 +108,28 @@ namespace PassLock
 
                 hasRepetition = Regex.IsMatch(password1, @"(\w)\1{2,}");
 
-                if (hasRepetition)
+
+                if (length < 30)
                 {
-                    repetitionCount++;
+                    if (hasRepetition)
+                    {
+                        passwordStrength -= 75;
+                        output = "Sequential patterns in your password make it easier to guess. Please use a more random sequence.";
+                    }
+                } else
+                {
+                    if (hasRepetition)
+                    {
+                        passwordStrength -= 25;
+                    }
                 }
 
 
 
+
+
+
                 Debug.WriteLine("Strength: " + passwordStrength);
-                Debug.WriteLine("Repetition Count " + repetitionCount);
                 Debug.WriteLine(password1);
             }
 
