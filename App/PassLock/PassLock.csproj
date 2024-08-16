@@ -139,6 +139,7 @@
     <Content Include="10-million-password-list-top-1000000.txt" />
     <Content Include="Assets\ezgif-5-dba482772a.gif" />
     <Content Include="Assets\logo.png" />
+    <Content Include="first-names.txt" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="TextFile1.txt" />
   </ItemGroup>

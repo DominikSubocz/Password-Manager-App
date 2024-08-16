@@ -1,1 +1,30 @@
 ﻿
+1. Length Check:
+"Your password must be at least 8 characters long."
+"Passwords shorter than 8 characters are too easy to guess. Please make it longer."
+2. Uppercase Letter Check:
+"Your password must include at least one uppercase letter."
+"Please add at least one capital letter to your password for better security."
+3. Digit Check:
+"Your password must contain at least one digit (0-9)."
+"For stronger security, include at least one number in your password."
+4. Special Character Check:
+"Your password must include at least one special character (e.g., !, @, #, $)."
+"Please add a special character to your password to enhance its strength."
+5. Common Password Check:
+"Your password matches a commonly used password. Please choose something more unique."
+"This password is too common and may be easily guessed. Try something more complex."
+6. Similarity to Common Passwords:
+"Your password is too similar to a common password. Please choose a more distinct password."
+"The password you’ve entered closely resembles a commonly used password, making it less secure."
+7. Repetition of Characters:
+"Your password contains repeated characters in a pattern that could weaken its security. Try a more random combination."
+"Avoid using repeated characters or sequences like 'aaa' to improve your password's strength."
+8. Sequential Patterns (like q1w2e3r4):
+"Avoid using sequential patterns like 'q1w2e3r4.' These are predictable and reduce your password's strength."
+"Sequential patterns in your password make it easier to guess. Please use a more random sequence."
+9. Password Strength Feedback:
+"Your password is weak. Consider using a mix of uppercase, lowercase, numbers, and special characters."
+"Your password could be stronger. Try increasing the length and adding more diverse characters."
+
+Your password contains a common password phrase.

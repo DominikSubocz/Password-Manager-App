@@ -49,6 +49,9 @@
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\10-million-password-list-top-1000000.txt">
       <PackagePath>10-million-password-list-top-1000000.txt</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\first-names.txt">
+      <PackagePath>first-names.txt</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\TextFile1.txt">
       <PackagePath>TextFile1.txt</PackagePath>
     </AppxPackagedFile>

@@ -47,6 +47,7 @@ namespace PassLock
             //    SignUpPanel.Visibility = Visibility.Collapsed;
             //}
 
+
         }
 
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
@@ -74,6 +75,9 @@ namespace PassLock
             {
                 ErrTxt.Text = output;
             }
+
+            PasswordStrengthBox.Width = passVal.getPasswordStrength();
+            PasswordStrengthBox.Fill = passVal.getBarColor();
 
 
         }
