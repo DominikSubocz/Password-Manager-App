@@ -35,12 +35,12 @@
                 <TextBlock Text="Password" FontSize="16" Margin="0 15 150 5"></TextBlock>
                 <PasswordBox x:ConnectionId='4' x:Name="Password1" Background="#DEECF8"                                             Width="500" Padding="10" PlaceholderText="Create new password" HorizontalAlignment="Left"></PasswordBox>
                 <StackPanel Margin="0 10">
-                    <TextBlock Text="Password Strength:" FontSize="16" Margin="0 10" ></TextBlock>
+                    <TextBlock Text="Password Strength:" FontSize="16" Margin="0 10" TextWrapping="Wrap"></TextBlock>
                     <Rectangle Fill="Gray" Width="500" Height="5" HorizontalAlignment="Left"></Rectangle>
                     <StackPanel >
                         <Rectangle x:ConnectionId='8' x:Name="PasswordStrengthBox" Fill="Red" Width="0" Height="5" Margin="0 -6 0 0" HorizontalAlignment="Left"></Rectangle>
                     </StackPanel>
-                    <TextBlock x:ConnectionId='7' x:Name="ErrTxt" Text="Password Tips:" Margin="0 10"></TextBlock>
+                    <TextBlock x:ConnectionId='7' x:Name="ErrTxt" Text="Password Tips:" Margin="0 10" TextWrapping="Wrap"></TextBlock>
                 </StackPanel>
                 <TextBlock Text="Confirm Password" FontSize="16" Margin="0 0 150 5"></TextBlock>
                 <PasswordBox x:ConnectionId='5' x:Name="Password2" Width="500"  Padding="10" PlaceholderText="Retype your password" Background="#DEECF8" HorizontalAlignment="Left"></PasswordBox>

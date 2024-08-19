@@ -13,6 +13,10 @@ using Windows.UI.Xaml.Media;
 
 namespace PassLock
 {
+
+
+
+
     public class PasswordValidator
     {
 
@@ -43,36 +47,29 @@ namespace PassLock
             double charsetResult = length * (Math.Log(charsetSize) / Math.Log(2));
             passwordStrength = Convert.ToInt32(charsetResult);
 
-            string lengthOutput = checkPasswordLength(password1, length);
             string complexityOutput = checkPasswordComplexity(password1, length);
             string commonOutput = checkCommonPasswords(password1);
             string nameOutput = checkCommonNames(password1, length);
 
-            if(lengthOutput != "")
+           if(complexityOutput != "")
             {
-                output = lengthOutput;
+                output = complexityOutput;
             } else
             {
-                if(complexityOutput != "")
-                {
-                    output = complexityOutput;
-                } else
-                {
-                    if (commonOutput != "")
+
+                    if(commonOutput != "")
                     {
                         output = commonOutput;
-                    }
-                    else
+                    } else
                     {
                         if(nameOutput != "")
                         {
                             output = nameOutput;
                         }
                     }
-                }
             }
 
-            Debug.WriteLine(passwordStrength);
+            Debug.WriteLine(password1 + "is: " + passwordStrength + " points strong") ;
             return output;
         }
 
@@ -171,32 +168,6 @@ namespace PassLock
             return message;
         }
 
-        public string checkPasswordLength(string password, int length)
-        {
-
-            string message = "";
-
-            if (length > 8)
-            {
-                passwordStrength += 20;
-                if ((length > 11) && (length < 16))
-                {
-                    passwordStrength += 50;
-                } else if ((length > 15) && (length < 21))
-                {
-                    passwordStrength += 75;
-                }
-                else if (length >= 21)
-                {
-                    passwordStrength += 100;
-                }
-            } else
-            {
-                message = "Password needs to be at least 8 characters long";
-            }
-
-            return message;
-        }
 
         public string checkPasswordComplexity(string password, int length)
         {
@@ -207,17 +178,21 @@ namespace PassLock
 
             string message = "";
 
+
+
             if (upperCaseRegex.IsMatch(password) == false)
             {
 
                 message = "At least one capital letter is required";
 
-            } else if(digitPattern.IsMatch(password) == false)
+            }
+            else if (digitPattern.IsMatch(password) == false)
             {
                 message = "At least one digit is required.";
             }
 
-            else if(symbolPattern.IsMatch(password) == false) {
+            else if (symbolPattern.IsMatch(password) == false)
+            {
                 message = "At least one special character is required.";
             }
             else
@@ -226,7 +201,7 @@ namespace PassLock
                 {
                     if (char.IsUpper(c))
                     {
-                        passwordStrength += 15;
+                        passwordStrength += 10;
                     }
 
                     if (char.IsLower(c))
@@ -236,7 +211,7 @@ namespace PassLock
 
                     if (char.IsDigit(c))
                     {
-                        passwordStrength += 10;
+                        passwordStrength += 15;
                     }
 
                     if (char.IsSymbol(c))
@@ -287,7 +262,7 @@ namespace PassLock
                     if (similarityDistance <= maxDistance)
                     {
                         message = "Your password is too similar to a common password. Please choose a more distinct password.";
-                        double penalty = (0.7 * passwordStrength);
+                        double penalty = (0.6 * passwordStrength);
                         passwordStrength = passwordStrength - penalty;
                         break;
                     }
@@ -295,8 +270,8 @@ namespace PassLock
                     {
                         if (password.ToLower().Contains(commonPassword.ToLower()))
                         {
-                            message = "Your password contains a common password phrase.";
-                            double penalty = (0.5 * passwordStrength);
+                            message = "Your password contains a common password phrase: " + "'" + commonPassword + "'" + " Consider using a unique and complex password to enhance your security.";
+                            double penalty = (0.7 * passwordStrength);
                             passwordStrength = passwordStrength - penalty;
                             break;
 
@@ -321,6 +296,8 @@ namespace PassLock
                     if (password.ToLower().Contains(firstName.ToLower()))
                     {
                         message = "Your password contains a common name, which can make it easier to guess. To enhance security, please avoid using names and choose a more complex password.";
+                        double penalty = (0.35 * passwordStrength);
+                        passwordStrength = passwordStrength - penalty;
                         break;
                     }
                     else
