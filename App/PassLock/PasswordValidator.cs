@@ -191,32 +191,32 @@ namespace PassLock
                 if (char.IsUpper(c))
                 {
                     hasUpper = true;
-                    passwordStrength += 10;
+                    passwordStrength += 12;
                 }
 
                 if (char.IsDigit(c))
                 {
                     hasDigits = true;
-                    passwordStrength += 15;
+                    passwordStrength += 25;
                 }
 
                 if (char.IsLower(c))
                 {
                     hasLower = true;
-                    passwordStrength += 5;
+                    passwordStrength += 8;
                 }
 
                 if (char.IsSymbol(c))
                 {
                     hasSymbols = true;
-                    passwordStrength += 20;
+                    passwordStrength += 16;
 
                 }
 
                 if (char.IsPunctuation(c))
                 {
                     hasSymbols = true;
-                    passwordStrength += 20;
+                    passwordStrength += 16;
                 }
             }
 
@@ -312,7 +312,7 @@ namespace PassLock
                 if (password == commonPassword)
                 {
                     message = "This password is too common and may be easily guessed. Try something more complex.";
-                    penalty = 0;
+                    passwordStrength = 0;
                     break;
                 }
                 else
