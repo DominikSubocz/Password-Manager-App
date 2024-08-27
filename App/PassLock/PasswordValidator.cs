@@ -25,6 +25,8 @@ namespace PassLock
         private string output = "";
         private readonly List<string> commonPasswords;
         private readonly List<string> firstNames;
+        private int basePenalty = 8;
+
 
 
 
@@ -42,12 +44,11 @@ namespace PassLock
             bool hasRepetition = false;
 
 
-
             double charsetResult = length * (Math.Log(charsetSize) / Math.Log(2));
             passwordStrength = Convert.ToInt32(charsetResult);
 
             string complexityOutput = checkPasswordComplexity(password1, length);
-            //string commonOutput = checkCommonPasswords(password1);
+            string commonOutput = checkCommonPasswords(password1);
             //string nameOutput = checkCommonNames(password1, length);
 
             if (complexityOutput != "")
@@ -57,10 +58,10 @@ namespace PassLock
             else
             {
 
-                //if (commonOutput != "")
-                //{
-                //    output = commonOutput;
-                //}
+                if (commonOutput != "")
+                {
+                    output = commonOutput;
+                }
                 //else
                 //{
                 //    if (nameOutput != "")
@@ -71,6 +72,7 @@ namespace PassLock
             }
 
             Debug.WriteLine(password1 + "is: " + passwordStrength + " points strong");
+            Debug.WriteLine(basePenalty);
             return output;
         }
 
@@ -180,10 +182,9 @@ namespace PassLock
             bool hasDigits = false;
             bool hasSymbols = false;
             double lengthFactor = length / 20.0;
-            int penaltyPoints = 10;
 
 
-        string message = "";
+            string message = "";
 
             foreach (char c in password)
             {
@@ -212,46 +213,86 @@ namespace PassLock
 
                 }
 
-                if (char.IsPunctuation(c)){
+                if (char.IsPunctuation(c))
+                {
                     hasSymbols = true;
                     passwordStrength += 20;
                 }
             }
 
-            if (!hasUpper)
+            hasRepetition = Regex.IsMatch(password, @"(\w)\1{2,}");
+
+            if (hasRepetition)
             {
-                message = "Your password must include at least one uppercase letter.";
-             
-            } else if(!hasLower)
-            {
-                message = "Your password could be stronger by including lowercase letters. Consider adding a mix of uppercase, lowercase, numbers, and symbols to enhance your security.";
-            } else if(!hasDigits)
-            {
-                message = "Your password must contain at least one digit (0-9).";
+                basePenalty = 10;
+                message = "Your password contains repeated characters in a pattern that could weaken its security. Try a more random combination.";
+
             }
-            else if(!hasSymbols)
+            else
             {
-                message = "Your password must include at least one special character (e.g., !, @, #, $).";
-
-            } else
-            {
-
-                if(length < 12)
-                {
-                    int adjustedPenalty = (int)(penaltyPoints * (8 - lengthFactor));
-                    passwordStrength = passwordStrength - adjustedPenalty;
-                }
+                basePenalty = 2;
                 message = "";
-                Debug.WriteLine(penaltyPoints);
 
-                hasRepetition = Regex.IsMatch(password, @"(\w)\1{2,}");
-
-                if (hasRepetition)
+                if (!hasUpper)
                 {
+                    message = "Your password must include at least one uppercase letter.";
+
+                }
+                else if (!hasLower)
+                {
+                    message = "Your password could be stronger by including lowercase letters. Consider adding a mix of uppercase, lowercase, numbers, and symbols to enhance your security.";
+                }
+                else if (!hasDigits)
+                {
+                    message = "Your password must contain at least one digit (0-9).";
+                }
+                else if (!hasSymbols)
+                {
+                    message = "Your password must include at least one special character (e.g., !, @, #, $).";
+
+                }
+                else
+                {
+
+                    if ((length > 8) && (length <= 12))
+                    {
+                        basePenalty = 8;
+
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        basePenalty = 6;
+
+                    }
+                    else if ((length > 16) && (length <= 20))
+                    {
+
+                        basePenalty = 5;
+
+                    }
+                    else if (length < 8)
+                    {
+
+                        message = "Your password must be at least 8 characters long.";
+
+                    }
+
                 }
             }
 
 
+
+            int adjustedPenalty = (int)(10 * (basePenalty - lengthFactor));
+            double penaltyResult = passwordStrength - adjustedPenalty;
+            if (penaltyResult > 0)
+            {
+                passwordStrength = penaltyResult;
+
+            }
+            else
+            {
+                passwordStrength = 0;
+            }
 
             return message;
 
@@ -260,5 +301,48 @@ namespace PassLock
 
         }
 
+        public string checkCommonPasswords(string password)
+        {
+            int maxDistance = 2;
+            string message = "";
+            double penalty = 0;
+
+            foreach (string commonPassword in commonPasswords)
+            {
+                if (password == commonPassword)
+                {
+                    message = "This password is too common and may be easily guessed. Try something more complex.";
+                    penalty = 0;
+                    break;
+                }
+                else
+                {
+                    int similarityDistance = Compute(password, commonPassword);
+                    if (similarityDistance <= maxDistance)
+                    {
+                        message = "Your password is too similar to a common password. Please choose a more distinct password.";
+                        penalty = 0.6;
+                        break;
+                    }
+                    else
+                    {
+                        if (password.ToLower().Contains(commonPassword.ToLower()))
+                        {
+                            message = "Your password contains a common password phrase: " + "'" + commonPassword + "'" + " Consider using a unique and complex password to enhance your security.";
+                            penalty = 0.7;
+                            break;
+
+                        }
+                    }
+                }
+
+            }
+            if(penalty > 0)
+            {
+                passwordStrength = (passwordStrength * penalty);
+
+            }
+            return message;
+        }
     }
 }
