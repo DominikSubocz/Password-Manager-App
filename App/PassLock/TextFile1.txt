@@ -30,47 +30,6 @@
 Your password contains a common password phrase.
 
 
-
-        public string checkCommonPasswords(string password)
-        {
-            int maxDistance = 2;
-            string message = "";
-
-            foreach (string commonPassword in commonPasswords)
-            {
-                if (password == commonPassword)
-                {
-                    message = "This password is too common and may be easily guessed. Try something more complex.";
-                    passwordStrength = 0;
-                    break;
-                } else
-                {
-                    int similarityDistance = Compute(password, commonPassword);
-                    if (similarityDistance <= maxDistance)
-                    {
-                        message = "Your password is too similar to a common password. Please choose a more distinct password.";
-                        double penalty = (0.6 * passwordStrength);
-                        passwordStrength = passwordStrength - penalty;
-                        break;
-                    }
-                    else
-                    {
-                        if (password.ToLower().Contains(commonPassword.ToLower()))
-                        {
-                            message = "Your password contains a common password phrase: " + "'" + commonPassword + "'" + " Consider using a unique and complex password to enhance your security.";
-                            double penalty = (0.7 * passwordStrength);
-                            passwordStrength = passwordStrength - penalty;
-                            break;
-
-                        }
-                    }
-                }
-            }
-
-            return message;
-
-        }
-
         public string checkCommonNames(string password, int length) 
         {
 

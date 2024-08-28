@@ -48,8 +48,8 @@ namespace PassLock
             passwordStrength = Convert.ToInt32(charsetResult);
 
             string complexityOutput = checkPasswordComplexity(password1, length);
-            string commonOutput = checkCommonPasswords(password1);
-            //string nameOutput = checkCommonNames(password1, length);
+            string commonOutput = checkCommonPasswords(password1, length);
+            string nameOutput = checkCommonNames(password1, length);
 
             if (complexityOutput != "")
             {
@@ -62,13 +62,13 @@ namespace PassLock
                 {
                     output = commonOutput;
                 }
-                //else
-                //{
-                //    if (nameOutput != "")
-                //    {
-                //        output = nameOutput;
-                //    }
-                //}
+                else
+                {
+                    if (nameOutput != "")
+                    {
+                        output = nameOutput;
+                    }
+                }
             }
 
             Debug.WriteLine(password1 + "is: " + passwordStrength + " points strong");
@@ -191,32 +191,122 @@ namespace PassLock
                 if (char.IsUpper(c))
                 {
                     hasUpper = true;
-                    passwordStrength += 12;
+
+                    if(length <= 8)
+                    {
+                        passwordStrength += 10;
+
+                    }
+                    else if ((length > 8) && (length <= 12))
+                    {
+                        passwordStrength += 12;
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        passwordStrength += 14;
+
+                    } else
+                    {
+                        passwordStrength += 16;
+
+                    }
+
                 }
 
                 if (char.IsDigit(c))
                 {
                     hasDigits = true;
-                    passwordStrength += 25;
+                    if (length <= 8)
+                    {
+                        passwordStrength += 20;
+
+                    }
+                    else if ((length > 8) && (length <= 12))
+                    {
+                        passwordStrength += 25;
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        passwordStrength += 28;
+
+                    }
+                    else
+                    {
+                        passwordStrength += 30;
+
+                    }
                 }
 
                 if (char.IsLower(c))
                 {
                     hasLower = true;
-                    passwordStrength += 8;
+                    if (length <= 8)
+                    {
+                        passwordStrength += 5;
+
+                    }
+                    else if ((length > 8) && (length <= 12))
+                    {
+                        passwordStrength += 8;
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        passwordStrength += 12;
+
+                    }
+                    else
+                    {
+                        passwordStrength += 15;
+
+                    }
                 }
 
                 if (char.IsSymbol(c))
                 {
                     hasSymbols = true;
-                    passwordStrength += 16;
+                    if (length <= 8)
+                    {
+                        passwordStrength += 12;
 
+                    }
+                    else if ((length > 8) && (length <= 12))
+                    {
+                        passwordStrength += 16;
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        passwordStrength += 18;
+
+                    }
+                    else
+                    {
+                        passwordStrength += 20;
+
+                    }
                 }
 
                 if (char.IsPunctuation(c))
                 {
                     hasSymbols = true;
-                    passwordStrength += 16;
+                    if (length <= 8)
+                    {
+                        passwordStrength += 12;
+
+                    }
+                    else if ((length > 8) && (length <= 12))
+                    {
+                        passwordStrength += 16;
+                    }
+                    else if ((length > 12) && (length <= 16))
+                    {
+                        passwordStrength += 18;
+
+                    }
+                    else
+                    {
+                        passwordStrength += 20;
+
+                    }
                 }
             }
 
@@ -301,7 +391,7 @@ namespace PassLock
 
         }
 
-        public string checkCommonPasswords(string password)
+        public string checkCommonPasswords(string password, int length)
         {
             int maxDistance = 2;
             string message = "";
@@ -321,7 +411,24 @@ namespace PassLock
                     if (similarityDistance <= maxDistance)
                     {
                         message = "Your password is too similar to a common password. Please choose a more distinct password.";
-                        penalty = 0.6;
+                        if (length <= 8)
+                        {
+                            penalty = 0.75;
+
+                        }
+                        else if ((length > 8) && (length <= 12))
+                        {
+                            penalty = 0.7;
+                        }
+                        else if ((length > 12) && (length <= 16))
+                        {
+                            penalty = 0.6;
+
+                        }
+                        else
+                        {
+                            penalty = 0.55;
+                        }
                         break;
                     }
                     else
@@ -329,7 +436,24 @@ namespace PassLock
                         if (password.ToLower().Contains(commonPassword.ToLower()))
                         {
                             message = "Your password contains a common password phrase: " + "'" + commonPassword + "'" + " Consider using a unique and complex password to enhance your security.";
-                            penalty = 0.7;
+                            if (length <= 8)
+                            {
+                                penalty = 0.75;
+
+                            }
+                            else if ((length > 8) && (length <= 12))
+                            {
+                                penalty = 0.7;
+                            }
+                            else if ((length > 12) && (length <= 16))
+                            {
+                                penalty = 0.6;
+
+                            }
+                            else
+                            {
+                                penalty = 0.55;
+                            }
                             break;
 
                         }
@@ -337,12 +461,42 @@ namespace PassLock
                 }
 
             }
-            if(penalty > 0)
+            if (penalty > 0)
             {
                 passwordStrength = (passwordStrength * penalty);
 
             }
             return message;
         }
+
+        public string checkCommonNames(string password, int length)
+        {
+
+            string message = "";
+
+            foreach (string firstName in firstNames)
+            {
+                if (length < 20)
+                {
+                    if (password.ToLower().Contains(firstName.ToLower()))
+                    {
+                        message = "Your password contains a common name, which can make it easier to guess. To enhance security, please avoid using names and choose a more complex password.";
+                        double penalty = (0.35 * passwordStrength);
+                        passwordStrength = passwordStrength - penalty;
+                        break;
+                    }
+                    else
+                    {
+                        message = "";
+                    }
+                }
+
+            }
+
+            return message;
+
+        }
+
     }
+
 }
