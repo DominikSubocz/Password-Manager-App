@@ -101,7 +101,7 @@ namespace PassLock
                 cmd.CommandText = "USE passlockdb; SELECT * FROM users;";
                 cmd.ExecuteNonQuery();
                 string result = (string)cmd.ExecuteScalar();
-                if(result == null)
+                if (result == null)
                 {
                     Debug.WriteLine("No users found! Please create an account to continue!");
                     usersExist = false;
@@ -114,9 +114,43 @@ namespace PassLock
             }
             return usersExist;
         }
+
+        public void createNewUser(string username, string password, DateTime dateCreated, DateTime lastLogin)
+        {
+            try
+            {
+                connect();
+                cmd = connection.CreateCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "INSERT INTO passlockdb.users (Username, PasswordHash, Email, CreatedAt, LastLogin) VALUES (@username, @password, 'test', @date, @loginDate)";
+                cmd.Parameters.Add("@username", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@password", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@date", MySqlDbType.VarChar);
+                cmd.Parameters.Add("@loginDate", MySqlDbType.VarChar);
+                cmd.Parameters["@username"].Value = username;
+                cmd.Parameters["@password"].Value = password;
+                cmd.Parameters["@date"].Value = dateCreated;
+                cmd.Parameters["@loginDate"].Value = lastLogin;
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Error creating user " + ex);
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("Error " + ex);
+
+            }
+
+
+        }
     }
-
-
 }
 
 

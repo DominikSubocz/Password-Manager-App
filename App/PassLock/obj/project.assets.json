@@ -11404,6 +11404,11 @@
         "uap10.0.16299": {
           "projectReferences": {}
         }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {

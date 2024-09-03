@@ -26,14 +26,13 @@ namespace PassLock
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        
+        PasswordValidator passVal = new PasswordValidator();
+        SQL sql = new SQL();
+
         public MainPage()
         {
             this.InitializeComponent();
 
-
-
-            SQL sql = new SQL();
 
             sql.createDB();
             bool usersExist = sql.usersExist();
@@ -52,18 +51,22 @@ namespace PassLock
 
         private void RegisterBtn_Click(object sender, RoutedEventArgs e)
         {
+            string username = UsernameField.Text;
+            string password = Password1.Password;
+            DateTime dateCreated = DateTime.Now;
 
-
+            if (ErrTxt.Text == "")
+            {
+                sql.createNewUser(username, password, dateCreated, dateCreated);
+            } 
 
         }
 
         private void Password1_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            PasswordValidator passVal = new PasswordValidator();
             string pass1 = Password1.Password;
-            string pass2 = Password2.Password;
 
-            string output = passVal.validatePasswords(pass1, pass2);
+            string output = passVal.validatePasswords(pass1);
             if (output == "")
             {
 
@@ -80,6 +83,20 @@ namespace PassLock
             PasswordStrengthBox.Fill = passVal.getBarColor();
 
 
+        }
+
+        private void Password2_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            string pass1 = Password1.Password;
+            string pass2 = Password2.Password;
+            string output = passVal.validatePasswordsMatch(pass1, pass2);
+            if(output == "")
+            {
+                ErrTxt.Text = "";
+            } else
+            {
+                ErrTxt.Text= output;
+            }
         }
     }
 }

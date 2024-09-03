@@ -36,7 +36,7 @@ namespace PassLock
             firstNames = new List<string>(File.ReadAllLines("first-names.txt"));
         }
 
-        public string validatePasswords(string password1, string password2)
+        public string validatePasswords(string password1)
         {
 
             int charsetSize = 94;
@@ -50,14 +50,12 @@ namespace PassLock
             string complexityOutput = checkPasswordComplexity(password1, length);
             string commonOutput = checkCommonPasswords(password1, length);
             string nameOutput = checkCommonNames(password1, length);
-
             if (complexityOutput != "")
             {
                 output = complexityOutput;
             }
             else
             {
-
                 if (commonOutput != "")
                 {
                     output = commonOutput;
@@ -165,10 +163,10 @@ namespace PassLock
         {
             string message = "";
 
-            if (password1 != password2)
-            {
-                message = "Passwords do not match!";
+            if(password2 != password1){
+                message = "abc";
             }
+
 
             return message;
         }

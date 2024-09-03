@@ -31,7 +31,6 @@ D:\Password Manager App\App\PassLock\obj\x86\Debug\ExtendedSplashScreen.xbf
 D:\Password Manager App\App\PassLock\obj\x86\Debug\MainPage.xbf
 D:\Password Manager App\App\PassLock\obj\x86\Debug\XamlSaveStateFile.xml
 D:\Password Manager App\App\PassLock\obj\x86\Debug\PassLock.csproj.CoreCompileInputs.cache
-D:\Password Manager App\App\PassLock\obj\x86\Debug\PassLock.csproj.CopyComplete
 D:\Password Manager App\App\PassLock\obj\x86\Debug\PassLock.exe
 D:\Password Manager App\App\PassLock\obj\x86\Debug\PassLock.pdb
 D:\Password Manager App\App\PassLock\obj\x86\Debug\ResourceHandlingTask.state
@@ -54,3 +53,5 @@ D:\Password Manager App\App\PassLock\obj\x86\Debug\qualifiers.txt.intermediate
 D:\Password Manager App\App\PassLock\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 D:\Password Manager App\App\PassLock\obj\x86\Debug\ProjectArchitectures.txt
 D:\Password Manager App\App\PassLock\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638194424980000000.json
+D:\Password Manager App\App\PassLock\obj\x86\Debug\PassLock.csproj.Up2Date
+D:\Password Manager App\App\PassLock\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638441419520000000.json

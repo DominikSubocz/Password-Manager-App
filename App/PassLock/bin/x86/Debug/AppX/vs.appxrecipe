@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>D:\Password Manager App\App\PassLock\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>3409D49BD226DFF967BD9C458B61C6FD66808F4C6E2D01BFD4F5E703AC64D883</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>7A731C31815895811FC8B478D45555E138273D202E376EBFFD45D807195EB3AE</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>629c77d6-632c-49c5-8ab0-4341bd649a4f_1.0.0.0_x86__arxtpr6snakca</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>629c77d6-632c-49c5-8ab0-4341bd649a4f_arxtpr6snakca!App</RegisteredUserModeAppID>
     <RegisteredPackageID>629c77d6-632c-49c5-8ab0-4341bd649a4f</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-08-28T15:22:06.880</Modified>
+      <Modified>2024-09-03T11:15:54.580</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\PassLock.exe">
       <PackagePath>entrypoint\PassLock.exe</PackagePath>
-      <Modified>2024-08-28T15:22:06.298</Modified>
+      <Modified>2024-09-03T11:15:53.859</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\stasi\.nuget\packages\microsoft.extensions.logging.abstractions\7.0.1\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll">
       <PackagePath>Microsoft.Extensions.Logging.Abstractions.dll</PackagePath>
@@ -60,7 +60,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
-      <Modified>2023-05-11T22:54:58.000</Modified>
+      <Modified>2024-02-21T19:52:32.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\10-million-password-list-top-1000000.txt">
       <PackagePath>10-million-password-list-top-1000000.txt</PackagePath>
@@ -92,27 +92,27 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-08-28T15:22:06.245</Modified>
+      <Modified>2024-09-03T11:15:53.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\ExtendedSplashScreen.xbf">
       <PackagePath>ExtendedSplashScreen.xbf</PackagePath>
-      <Modified>2024-08-28T15:22:06.245</Modified>
+      <Modified>2024-09-03T11:15:53.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2024-08-28T15:22:06.245</Modified>
+      <Modified>2024-09-03T11:15:53.776</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
-      <Modified>2023-05-12T01:38:22.000</Modified>
+      <Modified>2024-02-21T22:46:02.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-08-15T15:43:48.526</Modified>
+      <Modified>2024-09-03T09:40:15.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="D:\Password Manager App\App\PassLock\bin\x86\Debug\Core\PassLock.exe">
       <PackagePath>PassLock.exe</PackagePath>
-      <Modified>2024-08-28T15:22:06.878</Modified>
+      <Modified>2024-09-03T11:15:54.578</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
@@ -172,36 +172,36 @@
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.33519.0</Version>
       <Architecture>ARM</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.33519.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.33519.0</Version>
       <Architecture>ARM64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.33519.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.33519.0</Version>
       <Architecture>x64</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.33519.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
     </ResolvedSDKReference>
     <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
       <Name>Microsoft.VCLibs.140.00.Debug</Name>
-      <Version>14.0.30704.0</Version>
+      <Version>14.0.33519.0</Version>
       <Architecture>x86</Architecture>
-      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.30704.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.33519.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
       <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
       <MoreInfo>
       </MoreInfo>
